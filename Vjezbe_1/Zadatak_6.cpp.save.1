@@ -1,0 +1,35 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+class ElementaryParticle
+{
+	public:
+	string name;
+	float mass;
+	bool isBoson;
+
+	void printInfo();
+	ElementaryParticle(string _name, float _mass, bool _isBoson);
+};
+ElementaryParticle::ElementaryParticle(string _name, float _mass, bool _isBoson){
+	name= _name;
+	mass= _mass;
+	isBoson=_isBoson;
+}
+void ElementaryParticle::printInfo()
+{
+	cout<<"Particle properties : \nname : \n"<<name<<"\n"<<"mass : \n"<<mass<<"\n"<<"isBoson : \n"<<isBoson<<"\n" ;
+}
+
+int main()
+{
+	ElementaryParticle Higgs("Higgs boson",125,1);
+	ElementaryParticle TopQuark("Top Quark",173,0);
+	ElementaryParticle *Z = new ElementaryParticle("Z boson",90,1);
+	Higgs.printInfo();
+	TopQuark.printInfo();
+	Z->printInfo();
+	delete Z;
+	return 0;
+}
